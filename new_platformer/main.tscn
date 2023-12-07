@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfpfhccxqfsa"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_hpgkv"]
+[ext_resource type="PackedScene" uid="uid://tftvhiymp0r3" path="res://bg.tscn" id="2_x58i0"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_hpgkv")
+
+[node name="play" type="Button" parent="."]
+offset_left = 397.0
+offset_top = 113.0
+offset_right = 785.0
+offset_bottom = 279.0
+scale = Vector2(1.00623, 0.992911)
+tooltip_text = ";D"
+text = "Play"
+
+[node name="quit" type="Button" parent="."]
+offset_left = 401.0
+offset_top = 365.0
+offset_right = 789.0
+offset_bottom = 531.0
+tooltip_text = "This ends the program."
+text = "Quit"
+
+[node name="bg" parent="." instance=ExtResource("2_x58i0")]
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

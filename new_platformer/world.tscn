@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://326wy00klm72"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_po3t2"]
+[ext_resource type="Texture2D" uid="uid://qfesm4xoarw5" path="res://icon.svg" id="1_tmnkl"]
+[ext_resource type="PackedScene" uid="uid://devmp8ecs6a0d" path="res://player/player.tscn" id="2_3pogk"]
+[ext_resource type="Script" path="res://bg.gd" id="2_d51vw"]
+[ext_resource type="Texture2D" uid="uid://bhc4sghj16n11" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/environment/Background/back.png" id="3_eer6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljvys"]
+size = Vector2(1210, 123.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdiov"]
+size = Vector2(104, 316.375)
+
+[sub_resource type="GDScript" id="GDScript_qadqx"]
+script/source = "extends Button
+
+"
+
+[node name="world" type="Node2D"]
+script = ExtResource("1_po3t2")
+
+[node name="bg" type="ParallaxBackground" parent="."]
+script = ExtResource("2_d51vw")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="bg"]
+motion_mirroring = Vector2(1148, 0)
+
+[node name="Back" type="Sprite2D" parent="bg/ParallaxLayer"]
+position = Vector2(575, 323.5)
+scale = Vector2(2.99479, 2.69583)
+texture = ExtResource("3_eer6v")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(87, 78)
+texture = ExtResource("1_tmnkl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(565, 592)
+shape = SubResource("RectangleShape2D_ljvys")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-41, 371)
+shape = SubResource("RectangleShape2D_cdiov")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1171, 375)
+shape = SubResource("RectangleShape2D_cdiov")
+
+[node name="player" parent="." instance=ExtResource("2_3pogk")]
+position = Vector2(195, 511)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 1.0
+offset_top = 531.0
+offset_right = 1156.0
+offset_bottom = 620.0
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = -102.0
+offset_top = 212.0
+offset_right = 13.0
+offset_bottom = 530.0
+
+[node name="Panel3" type="Panel" parent="."]
+offset_left = 1116.0
+offset_top = 215.0
+offset_right = 1231.0
+offset_bottom = 533.0
+
+[node name="alt_quit" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 533.0
+offset_right = 83.0
+offset_bottom = 580.0
+text = "Quit"
+script = SubResource("GDScript_qadqx")
+
+[connection signal="pressed" from="alt_quit" to="." method="_on_alt_quit_pressed"]
