@@ -6,22 +6,31 @@ I'll have to a blog. I love games and want to learn how to develop them.
 
 ----
 Basic git commands
-```
-git clone git@github.com:ehstuguy/simple_games.git
-git status
-git add --all
-git commit -m "[commit message]"
-git push
-```
 
+`git clone git@github.com:ehstuguy/simple_games.git`
 
+`git status`
+
+`git add --all`
+
+`git commit -m "[commit message]"`
+
+`git push`
+
+----
 Other git commands in a convenient location
-```
-echo "# simple_games" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin git@github.com:ehstuguy/simple_games.git
-git push -u origin main
-```
+
+`echo "# simple_games" >> README.md`
+
+`git init`
+
+`git add README.md`
+
+`git commit -m "first commit"`
+
+`git branch -M main`
+
+`git remote add origin git@github.com:ehstuguy/simple_games.git`
+
+`git push -u origin main`
+
